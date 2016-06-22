@@ -1,0 +1,36 @@
+,,,
+Expresion,Meaning,Example,Explanation
+^,Verify first character of string,^1,First latter should be 1
+$,End of line,1$,Last latter should be 1
+.,Match any single character,^1.1$,First latter should be 1 second should be any and last one should be 1
+[….],Machtch single chaacter is availbale in bracket,^[123],First latter should be 1 or 2 or 3
+[^….],First later should not one of the latter in bracket,^[^123],First latter should not be 1 or 2 or 3
+\A,,,
+*,Zero or more occurrence,a*,should contain any number of a (should contain only a)
+,,^[abc].*,First latter should be a or b or c after that any number of any character
+,,zb*.*[123],"First latter should be z , After that any number of b and at the end any nuber of 1 or 2 or 3"
++,One or more occurrence,a+,Should contail one or more a
+,,a+.[b]+,Start with one or more a and end with one or more b
+?,zero or one time occurrence,a?,should contain only a or nothing
+,,^[abc]?[h]?,Should be start with one a or b or c and second latter 
+{n},exact n number of occurrence,a{4},must have exact 4 a
+"{n,}",Should have minimun n occurrence,"a{4,}",Must have minimum 4 a
+"{n,m}",should have minimun n and maximun m occurrence ,"a{4,7}",Number of a should be minimuber 4 and maximum 7
+a|b,either a or b,a|b,either a or b
+(),Groups regular expressions and remembers matched text,(a{4}).(b{2}),"First 4 latter should be a then any one latter and last two latter shoulb be b.
+e.g = aaaahbb
+Group - 0 = aaaahbb (Group can get through matchers.group(0).
+Group -1 = aaaa
+Group-2 = bb
+Note before get group you must call matchers.matches().If match not found than group not available."
+(?:rexp),should not insert in group,(?:a{4}).(b{2}),"First 4 latter should be a then any one latter and last two latter shoulb be b.
+e.g = aaaahbb
+Group - 0 = aaaahbb (Group can get through matchers.group(0).
+Group-1 = bb
+"
+\\w,should contain [0-9a-b_A-B],,_ allow
+\\W,should contain symbole (^\\w),,
+\\d,[0-9],,
+\\D,should contain expect number ^[0-9],,
+\\s,"should contain space,tab(\t),new line(\n)",,
+\\S,"Expect white space (\t\n\r\f) , ^\\s",,
